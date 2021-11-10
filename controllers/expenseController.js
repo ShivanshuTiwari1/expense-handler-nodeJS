@@ -93,8 +93,10 @@ export const updateExpense = async (req, res) => {
 };
 
 export const deleteExpense = async (req, res) => {
-    try {
-        await Expense.findOneAndDelete({key: req.params.id});
+    const retVal = await Expense.findOneAndDelete({key: req.params.id});
+    
+    if(retVal !== null)
+    {
         res.status(204).json({
             status: 'success',
             data: {
@@ -102,11 +104,14 @@ export const deleteExpense = async (req, res) => {
                 data: null,
             },
         });
-    } catch (err) {
+    }
+    else
+    {
         res.status(400).json({
             status: 'fail',
-            message: err,
+            message: 'Deletion Failed',
         });
     }
+    
 };
 
