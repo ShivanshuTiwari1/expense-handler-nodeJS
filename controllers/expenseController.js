@@ -94,7 +94,7 @@ export const updateExpense = async (req, res) => {
 
 export const deleteExpense = async (req, res) => {
     try {
-        await Expense.findByIdAndRemove(req.params.id);
+        await Expense.findOneAndDelete({key: req.params.id});
         res.status(204).json({
             status: 'success',
             data: {
