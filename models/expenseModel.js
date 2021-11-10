@@ -20,6 +20,11 @@ const expenseSchema = new mongoose.Schema({
         default: Date.now(),
         select: false,
     },
+    key: {
+        type: String,
+        required: [true, 'An expense entry must have a key'],
+        unique: true,
+    }
 });
 
 const Expense = mongoose.model('Expense', expenseSchema);
