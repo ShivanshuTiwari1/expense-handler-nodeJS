@@ -1,0 +1,27 @@
+{
+  "name": "iwp-assignment-2",
+  "version": "1.0.0",
+  "description": "Expense Handler using MERN for IWP Assignment 2",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.8",
+    "morgan": "^1.10.0",
+    "superagent": "^6.1.0"
+  },
+  "engines": {
+      "node": ">=14.17.0"
+  }
+}
