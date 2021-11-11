@@ -35,24 +35,6 @@ export const getAllExpenses = async (req, res) => {
     }
 };
 
-export const getExpense = async (req, res) => {
-    try {
-        const expense = await Expense.findById(req.params.id);
-
-        res.status(200).json({
-            status: 'success',
-            data: {
-                expense,
-            },
-        });
-    } catch (err) {
-        res.status(400).json({
-            status: 'fail',
-            message: err,
-        });
-    }
-};
-
 export const createExpense = async (req, res) => {
     try {
         const newExpense = await Expense.create(req.body);
@@ -61,27 +43,6 @@ export const createExpense = async (req, res) => {
             status: 'success',
             data: {
                 expense: newExpense,
-            },
-        });
-    } catch (err) {
-        res.status(400).json({
-            status: 'fail',
-            message: err,
-        });
-    }
-};
-
-export const updateExpense = async (req, res) => {
-    try {
-        const expense = await Expense.findByIdAndUpdate(req.params.id, req.body, {
-            new: true,
-            runValidators: true,
-        });
-        res.status(200).json({
-            status: 'success',
-            data: {
-                status: 'success',
-                expense,
             },
         });
     } catch (err) {

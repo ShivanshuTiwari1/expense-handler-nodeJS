@@ -10,8 +10,6 @@ router
     .post(expenseController.createExpense);
 router
     .route('/:id')
-    .get(expenseController.getExpense)
-    .post(expenseController.updateExpense)
     .delete(expenseController.deleteExpense);
 
 export default router;
